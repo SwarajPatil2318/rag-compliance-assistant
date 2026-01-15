@@ -1,0 +1,25 @@
+fastapi
+uvicorn
+
+# LLM + LangChain
+langchain-core
+langchain-groq
+langchain-text-splitters
+
+# Embeddings
+langchain-huggingface
+sentence-transformers
+
+# Vector DB
+pinecone
+
+# File parsing
+pymupdf
+python-docx
+extract-msg
+beautifulsoup4
+
+# Utilities
+requests
+python-multipart
+python-dotenv
