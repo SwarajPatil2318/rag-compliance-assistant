@@ -30,7 +30,9 @@ app = FastAPI(
     version="1.0.0"
 )
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+if os.path.isdir("static"):
+    app.mount("/static", StaticFiles(directory="static"), name="static")
+
 security = HTTPBearer()
 
 @app.get("/", response_class=HTMLResponse)
@@ -119,3 +121,6 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=int(os.getenv("PORT", 8000))
     )
+@app.get("/health")
+def health():
+    return {"status": "ok"}
