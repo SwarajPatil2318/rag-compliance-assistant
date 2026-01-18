@@ -34,11 +34,13 @@ if os.path.isdir("static"):
     app.mount("/static", StaticFiles(directory="static"), name="static")
 
 security = HTTPBearer()
-
 @app.get("/", response_class=HTMLResponse)
 async def home():
-    with open("static/index.html", encoding="utf-8") as f:
-        return f.read()
+    if os.path.exists("static/index.html"):
+        with open("static/index.html", encoding="utf-8") as f:
+            return f.read()
+    return "<h2>RAG Compliance Assistant is running</h2>"
+
 
 def verify_token(request: Request):
     auth = request.headers.get("Authorization")
