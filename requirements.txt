@@ -25,6 +25,5 @@ beautifulsoup4
 # Utilities
 requests
 python-multipart
-
 python-dotenv
 
